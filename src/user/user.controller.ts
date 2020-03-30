@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Query, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Query, Delete, Req } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from './user.entity';
 
@@ -7,6 +7,11 @@ export class UserController {
     constructor(
         private readonly userService: UserService
     ) { }
+
+    @Get()
+    async findAll(): Promise<User[]> {
+        return await this.userService.findAll()
+    }
 
     @Get(':id')
     async findOne(@Param('id') id): Promise<User> {

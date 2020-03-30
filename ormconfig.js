@@ -5,5 +5,7 @@ module.exports = {
     "username": "root",
     "password": "password",
     "database": "dwayner",
-    "entities": ['/../**/*.entity{.ts,.js}'],
+    "entities": [
+        `dist/**/**.entity{.ts,.js}`
+    ],
 }
